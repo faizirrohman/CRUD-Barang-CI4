@@ -6,6 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+$routes->get('/', 'BarangController::index');
 $routes->get('barang', 'BarangController::index');
 $routes->get('barang/tambah', 'BarangController::tambah');
 $routes->post('barang/add', 'BarangController::add');
