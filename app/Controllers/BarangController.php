@@ -16,4 +16,28 @@ class BarangController extends Controller
         echo view('barang_view', $data);
         echo view('footer_view', $data);
     }
+
+    public function tambah()
+    {
+        $data['title']          = 'Tambah Data Barang';
+
+        echo view('header_view', $data);
+        echo view('tambah_view', $data);
+        echo view('footer_view', $data);
+    }
+
+    public function add() {
+        $model          = new BarangModel;
+
+        $data   = array(
+            'nama_barang'       => $this->request->getPost('nama'),
+            'qty'               => $this->request->getPost('qty'),
+            'harga_beli'        => $this->request->getPost('beli'),
+            'harga_jual'        => $this->request->getPost('jual')
+        );
+
+        $model->saveBarang($data);
+
+        echo '<script>alert("Sukses Tambah Data Barang");window.location="'.base_url('barang').'"</script>>';
+    }
 }

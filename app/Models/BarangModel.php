@@ -15,4 +15,9 @@ class BarangModel extends Model
         }   
     }
  
+    public function saveBarang($data) {
+        $builder    = $this->db->table($this->table);
+
+        return $builder->insert($data);
+    }
 }
